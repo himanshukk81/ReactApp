@@ -1,5 +1,7 @@
-export interface IResource {
-    id?:number;
-    title?:string;
-    body?:string;
+export interface IApiObject<T>  {
+    data: any; 
+    isFetching: boolean , 
+    isError:boolean, 
+    errorMessage:string, 
+    error : any,
 }

@@ -1,32 +1,18 @@
+import React from 'react';
+import logo from './logo.svg';
+import { Counter } from './features/counter/Counter';
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container } from 'react-bootstrap'; 
-import {Resources} from './components/Resources';
-import { QueryClient, QueryClientProvider } from 'react-query';
-
-import { ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
-
-const overrides ={
-  defaultOptions:{
-    queries:{
-      retry:false,
-      refetchOnWindowFoces:false
-    }
-  }
-}
-
-const client = new QueryClient(overrides);
-
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
+import { UserList } from './components/UserList';
 
 function App() {
   return (
-    <QueryClientProvider client={client}>
-      <ToastContainer />
-      <Container>
-        <Resources />
-      </Container>
-    </QueryClientProvider> 
+    <div className="App">
+       <Provider store={store}>
+          <UserList />
+       </Provider>
+    </div>
   );
 }
 
