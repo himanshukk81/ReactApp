@@ -4,4 +4,5 @@ export interface IApiObject<T>  {
     isError:boolean, 
     errorMessage:string, 
     error : any,
+    isUpdating:boolean
 }
